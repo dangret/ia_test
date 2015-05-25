@@ -1,0 +1,26 @@
+{
+  "name": "iainteractive",
+  "version": "1",
+  "authors": [
+    "Daniel Negrete <daniel.negrete@sinneg.com>"
+  ],
+  "description": "examen IA Interactive",
+  "main": "app/views/index.php",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "ia.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "jquery-validate": "~1.13.1",
+    "cropper": "~0.9.3"
+  }
+}

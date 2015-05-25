@@ -1,0 +1,1678 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"text",
+				"textarea	Tag"
+			],
+			[
+				"estimatiable",
+				"estimatiable_type"
+			],
+			[
+				"negotiator",
+				"negotiator_id"
+			],
+			[
+				"user",
+				"user_id"
+			],
+			[
+				"negotiato",
+				"negotiator_id"
+			],
+			[
+				"coti",
+				"cotizaciones"
+			],
+			[
+				"cotizacio",
+				"cotizaciones"
+			],
+			[
+				"$roote",
+				"$rootScope	AngularJS"
+			],
+			[
+				"find",
+				"findWhere"
+			],
+			[
+				"logo",
+				"logotipos"
+			],
+			[
+				"deco",
+				"decorado"
+			],
+			[
+				"produc",
+				"product"
+			],
+			[
+				"produ",
+				"productos"
+			],
+			[
+				"drop",
+				"dropZoneLogos"
+			],
+			[
+				"remo",
+				"removeClass"
+			],
+			[
+				"prod",
+				"Producto"
+			],
+			[
+				"codig",
+				"codigo_pmr"
+			],
+			[
+				"modal",
+				"modalProductoRepetido"
+			],
+			[
+				"producto",
+				"producto_id"
+			],
+			[
+				"item",
+				"item_id"
+			],
+			[
+				"is",
+				"isEmpty"
+			],
+			[
+				"estima",
+				"estimates"
+			],
+			[
+				"$modal",
+				"$modalInstance"
+			],
+			[
+				"projec",
+				"project_id"
+			],
+			[
+				"index",
+				"index_found"
+			],
+			[
+				"rol",
+				"rol_details"
+			],
+			[
+				"$root",
+				"$rootScope	AngularJS"
+			],
+			[
+				"created",
+				"created_by"
+			],
+			[
+				"fecha",
+				"fecha_liberacion"
+			],
+			[
+				"business",
+				"businessline"
+			],
+			[
+				"cotiza",
+				"cotizacion"
+			],
+			[
+				"he",
+				"highest_monto"
+			],
+			[
+				"temp",
+				"tempResult"
+			],
+			[
+				"sap",
+				"sap_cliente"
+			],
+			[
+				"desi",
+				"designer"
+			],
+			[
+				"$roo",
+				"$rootScope	AngularJS"
+			],
+			[
+				"time",
+				"setTimeout"
+			],
+			[
+				"codigo",
+				"codigo_cu"
+			],
+			[
+				"no",
+				"notSortable"
+			],
+			[
+				"actua",
+				"actualizarProyecto"
+			],
+			[
+				"bussin",
+				"businessline"
+			],
+			[
+				"slug",
+				"slugCount"
+			],
+			[
+				"sus",
+				"sustituto_string"
+			],
+			[
+				"imagen",
+				"imagen_sustituto"
+			],
+			[
+				"file",
+				"filename"
+			],
+			[
+				"un",
+				"undefined"
+			],
+			[
+				"ima",
+				"imagen_sustituto"
+			],
+			[
+				"ln",
+				"lnNoSelected"
+			],
+			[
+				"estim",
+				"estimate_id"
+			],
+			[
+				"desc",
+				"Descripción"
+			],
+			[
+				"format",
+				"formatMoney"
+			],
+			[
+				"max",
+				"maxRange"
+			],
+			[
+				"picker",
+				"pickerDesde"
+			],
+			[
+				"set",
+				"setTimeout"
+			],
+			[
+				"els",
+				"else"
+			],
+			[
+				"estimates",
+				"estimate_ids"
+			],
+			[
+				"ar",
+				"artdetail"
+			],
+			[
+				"data",
+				"datatable"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/views/inicio.php",
+			"settings":
+			{
+				"buffer_size": 499,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "'use strict';\n\nvar login = {\n    init: function () {\n        this.validate();\n    },\n    msgIncorrecto: function () {\n        $(\"login-incorrecto\").fadeIn();\n    },\n    validate: function () {\n        return $(\"#login-form\").validate({\n            rules: {\n                username: 'required',\n                password: 'required',\n            },\n            messages: {\n                username: 'Campo requerido',\n                password: 'Campo requerido',\n            },\n            submitHandler: function (form) {\n                /* Escondemos el mensaje */\n                $(\"login-incorrecto\").hide();\n\n                /* Hacemos la petición para autenticar un usuario */\n                $post(\"api/login/auth\", $(form).serialize())\n                    .success(function (response) {\n                        setTimeout(function () {\n                            window.location(\"inicio\");\n                        }, 500);\n                    })\n                    .error(function (response) {\n                        login.msgIncorrecto();\n                    })  \n            }\n        })\n    }\n}\n\nvar registro = {\n    init: function () {\n        registro.cropper.init();\n    },\n    cropper: {\n        init: function () {\n            $('.cropper-example-1 > img').cropper({\n                aspectRatio: 1,\n                autoCropArea: 0.65,\n                strict: false,\n                guides: false,\n                highlight: false,\n                dragCrop: false,\n                movable: false,\n                resizable: false\n            });\n        }\n    }\n}\n\nvar templateScript = function () {\n    $('#login-form-link').click(function (e) {\n        $(\"#login-form\").delay(100).fadeIn(100);\n        $(\"#register-form\").fadeOut(100);\n        $('#register-form-link').removeClass('active');\n        $(this).addClass('active');\n        e.preventDefault();\n    });\n\n    $('#register-form-link').click(function (e) {\n        $(\"#register-form\").delay(100).fadeIn(100);\n        $(\"#login-form\").fadeOut(100);\n        $('#login-form-link').removeClass('active');\n        $(this).addClass('active');\n        e.preventDefault();\n    });\n}\n\n\n/* Los objectos están cargados en memoria, ahora hay que llamarlos y ejecutar unicamente los necesarios */\nvar init = function () {\n    login.init();\n    registro.init();\n    templateScript();\n}\n\n\n/* Cargar todo cuando el documento esté listo */\n$(document).ready(init);\n",
+			"file": "public/assets/scripts/login.js",
+			"file_size": 2426,
+			"file_write_time": 130769922642128940,
+			"settings":
+			{
+				"buffer_size": 2425,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\n\nclass PictureController extends \\BaseController {\n\n	public function postSubirTempImg(){\n		$file = Input::file('file');\n		$name = $file->getClientOriginalName();\n		$extension = $file->getClientOriginalExtension();\n		$img = Image::make($file);\n		$img->save(\"/uploads/$\")\n	}\n}",
+			"file": "app/controllers/PictureController.php",
+			"file_size": 279,
+			"file_write_time": 130769931429088508,
+			"settings":
+			{
+				"buffer_size": 280,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/views/login.php",
+			"settings":
+			{
+				"buffer_size": 8133,
+				"line_ending": "Unix",
+				"name": "login.php"
+			}
+		},
+		{
+			"contents": "(function (factory) {\n  if (typeof define === 'function' && define.amd) {\n    define(['jquery'], factory);\n  } else if (typeof exports === 'object') {\n    // Node / CommonJS\n    factory(require('jquery'));\n  } else {\n    factory(jQuery);\n  }\n})(function ($) {\n\n  'use strict';\n\n  var console = window.console || { log: function () {} };\n\n  function CropAvatar($element) {\n    this.$container = $element;\n\n    this.$avatarView = this.$container.find('.avatar-view');\n    this.$avatar = this.$avatarView.find('img');\n    this.$avatarModal = this.$container.find('#avatar-modal');\n    this.$loading = this.$container.find('.loading');\n\n    this.$avatarForm = this.$avatarModal.find('.avatar-form');\n    this.$avatarUpload = this.$avatarForm.find('.avatar-upload');\n    this.$avatarSrc = this.$avatarForm.find('.avatar-src');\n    this.$avatarData = this.$avatarForm.find('.avatar-data');\n    this.$avatarInput = this.$avatarForm.find('.avatar-input');\n    this.$avatarSave = this.$avatarForm.find('.avatar-save');\n    this.$avatarBtns = this.$avatarForm.find('.avatar-btns');\n\n    this.$avatarWrapper = this.$avatarModal.find('.avatar-wrapper');\n    this.$avatarPreview = this.$avatarModal.find('.avatar-preview');\n\n    this.init();\n    console.log(this);\n  }\n\n  CropAvatar.prototype = {\n    constructor: CropAvatar,\n\n    support: {\n      fileList: !!$('<input type=\"file\">').prop('files'),\n      blobURLs: !!window.URL && URL.createObjectURL,\n      formData: !!window.FormData\n    },\n\n    init: function () {\n      this.support.datauri = this.support.fileList && this.support.blobURLs;\n\n      if (!this.support.formData) {\n        this.initIframe();\n      }\n\n      this.initTooltip();\n      this.initModal();\n      this.addListener();\n    },\n\n    addListener: function () {\n      this.$avatarView.on('click', $.proxy(this.click, this));\n      this.$avatarInput.on('change', $.proxy(this.change, this));\n      this.$avatarForm.on('submit', $.proxy(this.submit, this));\n      this.$avatarBtns.on('click', $.proxy(this.rotate, this));\n    },\n\n    initTooltip: function () {\n      this.$avatarView.tooltip({\n        placement: 'bottom'\n      });\n    },\n\n    initModal: function () {\n      this.$avatarModal.modal({\n        show: false\n      });\n    },\n\n    initPreview: function () {\n      var url = this.$avatar.attr('src');\n\n      this.$avatarPreview.empty().html('<img src=\"' + url + '\">');\n    },\n\n    initIframe: function () {\n      var target = 'upload-iframe-' + (new Date()).getTime(),\n          $iframe = $('<iframe>').attr({\n            name: target,\n            src: ''\n          }),\n          _this = this;\n\n      // Ready ifrmae\n      $iframe.one('load', function () {\n\n        // respond response\n        $iframe.on('load', function () {\n          var data;\n\n          try {\n            data = $(this).contents().find('body').text();\n          } catch (e) {\n            console.log(e.message);\n          }\n\n          if (data) {\n            try {\n              data = $.parseJSON(data);\n            } catch (e) {\n              console.log(e.message);\n            }\n\n            _this.submitDone(data);\n          } else {\n            _this.submitFail('Image upload failed!');\n          }\n\n          _this.submitEnd();\n\n        });\n      });\n\n      this.$iframe = $iframe;\n      this.$avatarForm.attr('target', target).after($iframe.hide());\n    },\n\n    click: function () {\n      this.$avatarModal.modal('show');\n      this.initPreview();\n    },\n\n    change: function () {\n      var files,\n          file;\n\n      if (this.support.datauri) {\n        files = this.$avatarInput.prop('files');\n\n        if (files.length > 0) {\n          file = files[0];\n\n          if (this.isImageFile(file)) {\n            if (this.url) {\n              URL.revokeObjectURL(this.url); // Revoke the old one\n            }\n\n            this.url = URL.createObjectURL(file);\n            this.startCropper();\n          }\n        }\n      } else {\n        file = this.$avatarInput.val();\n\n        if (this.isImageFile(file)) {\n          this.syncUpload();\n        }\n      }\n    },\n\n    submit: function () {\n      if (!this.$avatarSrc.val() && !this.$avatarInput.val()) {\n        return false;\n      }\n\n      if (this.support.formData) {\n        this.ajaxUpload();\n        return false;\n      }\n    },\n\n    rotate: function (e) {\n      var data;\n\n      if (this.active) {\n        data = $(e.target).data();\n\n        if (data.method) {\n          this.$img.cropper(data.method, data.option);\n        }\n      }\n    },\n\n    isImageFile: function (file) {\n      if (file.type) {\n        return /^image\\/\\w+$/.test(file.type);\n      } else {\n        return /\\.(jpg|jpeg|png|gif)$/.test(file);\n      }\n    },\n\n    startCropper: function () {\n      var _this = this;\n\n      if (this.active) {\n        this.$img.cropper('replace', this.url);\n      } else {\n        this.$img = $('<img src=\"' + this.url + '\">');\n        this.$avatarWrapper.empty().html(this.$img);\n        this.$img.cropper({\n          aspectRatio: 1,\n          preview: this.$avatarPreview.selector,\n          strict: false,\n          crop: function (data) {\n            var json = [\n                  '{\"x\":' + data.x,\n                  '\"y\":' + data.y,\n                  '\"height\":' + data.height,\n                  '\"width\":' + data.width,\n                  '\"rotate\":' + data.rotate + '}'\n                ].join();\n\n            _this.$avatarData.val(json);\n          }\n        });\n\n        this.active = true;\n      }\n    },\n\n    stopCropper: function () {\n      if (this.active) {\n        this.$img.cropper('destroy');\n        this.$img.remove();\n        this.active = false;\n      }\n    },\n\n    ajaxUpload: function () {\n      var url = this.$avatarForm.attr('action'),\n          data = new FormData(this.$avatarForm[0]),\n          _this = this;\n\n      $.ajax(url, {\n        type: 'post',\n        data: data,\n        dataType: 'json',\n        processData: false,\n        contentType: false,\n\n        beforeSend: function () {\n          _this.submitStart();\n        },\n\n        success: function (data) {\n          _this.submitDone(data);\n        },\n\n        error: function (XMLHttpRequest, textStatus, errorThrown) {\n          _this.submitFail(textStatus || errorThrown);\n        },\n\n        complete: function () {\n          _this.submitEnd();\n        }\n      });\n    },\n\n    syncUpload: function () {\n      this.$avatarSave.click();\n    },\n\n    submitStart: function () {\n      this.$loading.fadeIn();\n    },\n\n    submitDone: function (data) {\n      console.log(data);\n\n      if ($.isPlainObject(data) && data.state === 200) {\n        if (data.result) {\n          this.url = data.result;\n\n          if (this.support.datauri || this.uploaded) {\n            this.uploaded = false;\n            this.cropDone();\n          } else {\n            this.uploaded = true;\n            this.$avatarSrc.val(this.url);\n            this.startCropper();\n          }\n\n          this.$avatarInput.val('');\n        } else if (data.message) {\n          this.alert(data.message);\n        }\n      } else {\n        this.alert('Failed to response');\n      }\n    },\n\n    submitFail: function (msg) {\n      this.alert(msg);\n    },\n\n    submitEnd: function () {\n      this.$loading.fadeOut();\n    },\n\n    cropDone: function () {\n      this.$avatarForm.get(0).reset();\n      this.$avatar.attr('src', this.url);\n      this.stopCropper();\n      this.$avatarModal.modal('hide');\n    },\n\n    alert: function (msg) {\n      var $alert = [\n            '<div class=\"alert alert-danger avatar-alert alert-dismissable\">',\n              '<button type=\"button\" class=\"close\" data-dismiss=\"alert\">&times;</button>',\n              msg,\n            '</div>'\n          ].join('');\n\n      this.$avatarUpload.after($alert);\n    }\n  };\n\n  $(function () {\n    return new CropAvatar($('#crop-avatar'));\n  });\n\n});\n",
+			"file": "/home/daniel/.cache/.fr-D6OSby/cropper-master/examples/crop-avatar/js/main.js",
+			"file_size": 7811,
+			"file_write_time": 130767767730000000,
+			"settings":
+			{
+				"buffer_size": 7811,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/config/database.php",
+			"settings":
+			{
+				"buffer_size": 3339,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/routes.php",
+			"settings":
+			{
+				"buffer_size": 856,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 75.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"migrai",
+				"Laravel Generate: Migration"
+			],
+			[
+				"mi",
+				"Laravel Generate: Migration"
+			],
+			[
+				"migration",
+				"Laravel Generate: Migration"
+			],
+			[
+				"php",
+				"Set Syntax: PHP"
+			],
+			[
+				"balde",
+				"Set Syntax: PHP - Laravel Blade"
+			],
+			[
+				"html",
+				"HTMLPrettify"
+			],
+			[
+				"con",
+				"Laravel Generate: Controller"
+			],
+			[
+				"contro",
+				"Laravel Generate: Controller"
+			],
+			[
+				"controller",
+				"Laravel Generate: Controller"
+			],
+			[
+				"scalf",
+				"Laravel Generate: Scaffold"
+			],
+			[
+				"laravel scaf",
+				"Laravel Generate: Scaffold"
+			],
+			[
+				"an",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"diff",
+				"Git: Diff Current File"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"check",
+				"Git: Checkout Current File"
+			],
+			[
+				"dif",
+				"Git: Diff Current File"
+			],
+			[
+				"angu",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"chec",
+				"Git: Checkout Current File"
+			],
+			[
+				"wrap",
+				"Word Wrap: Toggle"
+			],
+			[
+				"ang",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"angul",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"preti",
+				"HTMLPrettify: Set Prettify Preferences"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"git diff",
+				"Git: Diff Current File"
+			],
+			[
+				"pretif",
+				"HTMLPrettify: Set Prettify Preferences"
+			],
+			[
+				"ceh",
+				"Git: Checkout Current File"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"wrwa",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"bash",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"che",
+				"Git: Checkout Current File"
+			],
+			[
+				"sql",
+				"Set Syntax: SQL"
+			],
+			[
+				"wraw",
+				"Emmet: Wrap With Abbreviation"
+			],
+			[
+				"n",
+				"Set Syntax: nginx"
+			],
+			[
+				"DIF",
+				"Git: Diff Current File"
+			],
+			[
+				"chrc",
+				"Git: Checkout Current File"
+			],
+			[
+				"angular",
+				"Set Syntax: HTML (Angular.js)"
+			],
+			[
+				"keybin",
+				"Preferences: Key Bindings - Default"
+			],
+			[
+				"emme remo",
+				"Emmet: Remove Tag"
+			],
+			[
+				"remove",
+				"Emmet: Remove Tag"
+			],
+			[
+				"remov",
+				"Emmet: Remove Tag"
+			],
+			[
+				"ngi",
+				"Set Syntax: nginx"
+			],
+			[
+				"bas",
+				"Set Syntax: Shell Script (Bash)"
+			],
+			[
+				"model",
+				"Laravel Generate: Model"
+			],
+			[
+				"migra",
+				"Laravel Generate: Migration"
+			],
+			[
+				"migrat",
+				"Laravel Generate: Migration"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"user",
+				"Preferences: Key Bindings - User"
+			],
+			[
+				"moel",
+				"Laravel Generate: Model"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"user ",
+				"Preferences: Key Bindings - User"
+			]
+		],
+		"width": 461.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by) "
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/daniel/sinneg/iainteractive",
+		"/home/daniel/sinneg/iainteractive/app",
+		"/home/daniel/sinneg/iainteractive/app/controllers",
+		"/home/daniel/sinneg/iainteractive/app/database",
+		"/home/daniel/sinneg/iainteractive/app/database/migrations",
+		"/home/daniel/sinneg/iainteractive/app/views",
+		"/home/daniel/sinneg/iainteractive/public",
+		"/home/daniel/sinneg/iainteractive/public/assets",
+		"/home/daniel/sinneg/iainteractive/public/assets/js",
+		"/home/daniel/sinneg/iainteractive/public/assets/js/jquery",
+		"/home/daniel/sinneg/iainteractive/public/assets/scripts"
+	],
+	"file_history":
+	[
+		"/home/daniel/sinneg/iainteractive/app/models/User.php",
+		"/etc/nginx/sites-available/default",
+		"/home/daniel/sinneg/iainteractive/app/database/migrations/2015_05_25_012207_create_cities_table.php",
+		"/home/daniel/sinneg/iainteractive/public/assets/js/cropper/dist/cropper.min.js",
+		"/home/daniel/sinneg/iainteractive/public/assets/js/cropper/dist/cropper.min.css",
+		"/home/daniel/sinneg/iainteractive/public/assets/scripts/login.js",
+		"/home/daniel/sinneg/iainteractive/app/controllers/LoginController.php",
+		"/home/daniel/sinneg/iainteractive/app/database/migrations/2015_05_25_021842_create_users_table.php",
+		"/home/daniel/sinneg/iainteractive/app/database/migrations/2015_05_25_012125_create_states_table.php",
+		"/home/daniel/sinneg/iainteractive/.bowerrc",
+		"/home/daniel/sinneg/iainteractive/public/assets/js/jquery-validate/dist/jquery.validate.min.js",
+		"/home/daniel/sinneg/iainteractive/public/scripts/login.js",
+		"/home/daniel/sinneg/iainteractive/app/filters.php",
+		"/home/daniel/sinneg/iainteractive/public/assets/css/login.css",
+		"/home/daniel/sinneg/iainteractive/public/assets/js/bootstrap/dist/js/bootstrap.min.js",
+		"/home/daniel/sinneg/iainteractive/public/assets/js/bootstrap/dist/css/bootstrap.min.css",
+		"/home/daniel/sinneg/iainteractive/vendor/laravel/framework/src/Illuminate/Routing/Controller.php",
+		"/home/daniel/sinneg/iainteractive/composer.json",
+		"/home/daniel/sinneg/iainteractive/app/config/app.php",
+		"/home/daniel/sinneg/iainteractive/public/assets/js/jquery/dist/jquery.min.js",
+		"/home/daniel/sinneg/iainteractive/bower_components/jquery/dist/jquery.min.js",
+		"/home/daniel/sinneg/iainteracive/app/models/User.php",
+		"/etc/hosts",
+		"/etc/host.conf",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.proyectodetalle.js",
+		"/home/daniel/sinneg/adpropedidos/app/models/Estimate.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.master.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/home.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/layouts/master.blade.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.producto.js",
+		"/home/daniel/sinneg/adpropedidos/app/controllers/DesignController.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/ng.app.js",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.costear.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/proyectoDetalles.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/modalCambiarEstatusProyecto.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/controllers/ProyectoController.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/design/panel.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/producto.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_02_19_045409_create_estimates_table.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/design/modalAgregar.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/controllers/PrepedidoController.php",
+		"/home/daniel/sinneg/adpropedidos/app/controllers/AdministracionController.php",
+		"/home/daniel/sinneg/adpropedidos/app/controllers/AuthController.php",
+		"/home/daniel/sinneg/adpropedidos/app/database/seeds/DatabaseSeeder.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Item.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.proyecto.js",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_02_19_031017_create_items_table.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/modalProductoExistente.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Decoration.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Logo.php",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_02_19_031758_create_logos_table.php",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_02_19_031223_create_decorations_table.php",
+		"/home/daniel/sinneg/adpropedidos/app/controllers/modalProductoExistente.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/modalSustitutos.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/utils/Utils.php",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_02_19_045401_create_projects_table.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Project.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/modalPMR.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/administracion.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/proyectos.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/modalAgregar.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/modalEliminar.blade.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/directives/ng.directive.avRoleable.js",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.administracion.js",
+		"/home/daniel/sinneg/adpropedidos/app/controllers/MasterController.php",
+		"/home/daniel/sinneg/adpropedidos/app/controllers/ClienteController.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.aaeresumen.js",
+		"/home/daniel/sinneg/adpropedidos/app/database/seeds/RolTableSeeder.php",
+		"/home/daniel/sinneg/adpropedidos/public/vendor/angular/angular.js",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_02_24_165513_create_costings_table.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.prepedido.js",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.costeomodal.js",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.design.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/costear.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/proyectoBrieff.blade.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.brieff.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/modalProyecto.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/prepedidos.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/design/ha.blade.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.pedido.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/pedidos.blade.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.ha.js",
+		"/home/daniel/sinneg/adpropedidos/app/models/Shipment.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.hproyecto.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/hproyectos/hproyecto.blade.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.designpanel.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/design/seguimiento.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/modalCosteo.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/routes.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.prepedidodetalle.js",
+		"/home/daniel/.config/sublime-text-3/Packages/HTML-CSS-JS Prettify/.jsbeautifyrc",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/modalProducto.blade.php",
+		"/home/daniel/sinneg/adpropedidos/vendor/laravel/framework/src/Illuminate/Workbench/Starter.php",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.productomodal.js",
+		"/home/daniel/sinneg/adpropedidos/app/models/Costing.php",
+		"/home/daniel/sinneg/adpropedidos/bower.json",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/detalle.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/detalle_ver.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/combo.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/servicio.blade.php",
+		"/home/daniel/sinneg/adpropedidos/public/css/style-personal.css",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.servicio.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/modalJASCompras.blade.php",
+		"/home/daniel/actualizarServers.sh",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_03_27_221156_create_shipments_table.php",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_02_19_001709_create_users_table.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/modalProductoEmpaque.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/modalAgregar.blade.php",
+		"/etc/environment",
+		"/home/daniel/sinneg/adpropedidos/public/js/ng/controllers/ng.controller.modalSustitutos.js",
+		"/home/daniel/sinneg/adpropedidos/app/database/seeds/PaymentermTableSeeder.php",
+		"/home/daniel/sinneg/adpropedidos/app/config/app.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/design/aaeresumen.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/emails/design/design.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Paymenterm.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Order.php",
+		"/home/daniel/sinneg/adpropedidos/composer.json",
+		"/home/daniel/sinneg/adpropedidos/app/start/global.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Masterproject.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Pe.php",
+		"/home/daniel/sinneg/adpropedidos/app/models/Pmr.php",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/modalPE.blade.php",
+		"/home/daniel/sinneg/adpropedidos/public/vendor/ng-remote-validate/release/ngRemoteValidate.js",
+		"/home/daniel/sinneg/adpropedidos/app/views/proyectos/modalSustitutos.blade.php",
+		"/home/daniel/sinneg/adpropedidos/.gitignore",
+		"/home/daniel/sinneg/adpropedidos/app/views/pedidos/modalArte.blade.php",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_03_23_162101_create_artcollections_table.php",
+		"/home/daniel/sinneg/adpropedidos/app/database/migrations/2015_03_23_162100_create_arts_table.php"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 72.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"upload",
+			"password",
+			"Password",
+			"6",
+			"col-md-offset-6",
+			"offset",
+			"12",
+			"group",
+			"value=\"\"",
+			"\"d",
+			"d\"",
+			"d",
+			"state",
+			"username",
+			"btn",
+			"bfn",
+			"script",
+			"iainteractive",
+			"project",
+			"cambiarEstatus",
+			":hover",
+			"sinHover",
+			"pedidos",
+			"$compile",
+			"sideE",
+			"|",
+			":x",
+			"av-roleable",
+			"costear",
+			"Inptut",
+			"Inptu",
+			"negotiator_id",
+			"value",
+			"Producto",
+			"case",
+			"tipo_partida",
+			"\\",
+			"\"",
+			"\\",
+			"/",
+			"producto y empaque",
+			"negociador_id",
+			"moneda",
+			"\"",
+			"select-style",
+			"$negociador_visible",
+			"proyecto",
+			"=>",
+			"negociador",
+			"lider",
+			"table",
+			"string",
+			"decorado",
+			":",
+			"clave",
+			"fromPMR",
+			"mockFile",
+			"dropZoneCu",
+			"$lineable",
+			"clave_proveedor",
+			"$clave",
+			"thisDropzone",
+			"ng-show=\"fromPMR\"",
+			"ng-disabled=\"fromPMR\"",
+			"clave",
+			"incr-btn",
+			"disabled",
+			"incr-btn",
+			"select",
+			"form-control",
+			"Moneda",
+			"t-right\"",
+			"-right",
+			"yle=\"text-align: right",
+			"yle=\"text-align: ",
+			"text-right",
+			"ng-bind",
+			"ass=\"row",
+			"lass=\"ro",
+			"ss=\"row\">",
+			" <span cl",
+			"  <span cl",
+			"</div>",
+			"col-lg-6",
+			"right",
+			"model",
+			":",
+			"decorados",
+			"isEmpty",
+			"value",
+			"isValid",
+			"\";\n",
+			"click",
+			"$modal",
+			":x",
+			"project_id",
+			"estimate_id",
+			"estatus",
+			":x",
+			"br",
+			"b",
+			"ver",
+			"obtenercoti",
+			"ln",
+			"lider",
+			"adsociation->sbu->",
+			"slider",
+			"created_at",
+			"nombre",
+			"Regex",
+			"isFounded",
+			"roles",
+			"user_rol",
+			"adRolable",
+			"ngModel",
+			"ngModelDirective",
+			"ngModel",
+			"project",
+			"fecha_liberado",
+			"liberacion",
+			"fecha_estimada_liberacion",
+			"artcollections",
+			"entrega",
+			"pendiente",
+			"client",
+			"sap_cliente",
+			"businessunit",
+			"\"un"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"_",
+			"pe",
+			"PE",
+			"Pe",
+			"pe",
+			"PE"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/views/inicio.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 499,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								436,
+								436
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "public/assets/scripts/login.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2425,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1074,
+								1074
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 195.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/controllers/PictureController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 280,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								273,
+								273
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/views/login.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8133,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3596,
+								3596
+							]
+						],
+						"settings":
+						{
+							"auto_name": "login.php",
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 210.0,
+						"translation.y": 468.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/home/daniel/.cache/.fr-D6OSby/cropper-master/examples/crop-avatar/js/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7811,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								188,
+								188
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/config/database.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3339,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1530,
+								1530
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": -0.0,
+						"translation.y": 468.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 856,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								589,
+								589
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 21.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 88.0
+	},
+	"pinned_build_system": "",
+	"project": "ia.sublime-project",
+	"replace":
+	{
+		"height": 38.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pictu",
+				"app/controllers/PictureController.php"
+			],
+			[
+				"login.js",
+				"public/assets/scripts/login.js"
+			],
+			[
+				"corpper",
+				"public/assets/js/cropper/dist/cropper.min.js"
+			],
+			[
+				"crop",
+				"public/assets/js/cropper/dist/cropper.min.css"
+			],
+			[
+				"users_",
+				"app/database/migrations/2015_05_25_021842_create_users_table.php"
+			],
+			[
+				"database.",
+				"app/config/database.php"
+			],
+			[
+				"user",
+				"app/models/User.php"
+			],
+			[
+				"cities_",
+				"app/database/migrations/2015_05_25_012207_create_cities_table.php"
+			],
+			[
+				"states_",
+				"app/database/migrations/2015_05_25_012125_create_states_table.php"
+			],
+			[
+				"logincon",
+				"app/controllers/LoginController.php"
+			],
+			[
+				"bowerr",
+				".bowerrc"
+			],
+			[
+				"validate",
+				"public/assets/js/jquery-validate/dist/jquery.validate.min.js"
+			],
+			[
+				"login",
+				"public/scripts/login.js"
+			],
+			[
+				"route",
+				"app/routes.php"
+			],
+			[
+				"bootstrap.js",
+				"public/assets/js/bootstrap/dist/js/bootstrap.min.js"
+			],
+			[
+				"index",
+				"app/views/index.php"
+			],
+			[
+				"bootstrap.css",
+				"public/assets/js/bootstrap/dist/css/bootstrap.min.css"
+			],
+			[
+				"filter",
+				"app/filters.php"
+			],
+			[
+				"contro",
+				"vendor/laravel/framework/src/Illuminate/Routing/Controller.php"
+			],
+			[
+				"app",
+				"app/config/app.php"
+			],
+			[
+				"ompos",
+				"composer.json"
+			],
+			[
+				"compos",
+				"composer.json"
+			],
+			[
+				"routes",
+				"app/routes.php"
+			],
+			[
+				"jquery",
+				"public/assets/js/jquery/dist/jquery.min.js"
+			],
+			[
+				"jq",
+				"public/assets/js/jquery/dist/jquery.min.js"
+			],
+			[
+				"hel",
+				"app/views/hello.php"
+			],
+			[
+				"costear.js",
+				"public/js/ng/controllers/ng.controller.costear.js"
+			],
+			[
+				"costeo.js",
+				"public/js/ng/controllers/ng.controller.costeomodal.js"
+			],
+			[
+				"proyectocon",
+				"app/controllers/ProyectoController.php"
+			],
+			[
+				"proyectodetall",
+				"public/js/ng/controllers/ng.controller.proyectodetalle.js"
+			],
+			[
+				"cotizacion",
+				"public/js/ng/controllers/ng.controller.cotizacion.js"
+			],
+			[
+				"modalcambi",
+				"app/views/proyectos/modalCambiarEstatusProyecto.blade.php"
+			],
+			[
+				"proyecto.js",
+				"public/js/ng/controllers/ng.controller.proyecto.js"
+			],
+			[
+				"cotizacion.js",
+				"public/js/ng/controllers/ng.controller.cotizacion.js"
+			],
+			[
+				"home",
+				"app/views/home.blade.php"
+			],
+			[
+				"home.s",
+				"public/css/home.style.css"
+			],
+			[
+				"master.js",
+				"public/js/ng/controllers/ng.controller.master.js"
+			],
+			[
+				"home.",
+				"app/views/home.blade.php"
+			],
+			[
+				"master.b",
+				"app/views/layouts/master.blade.php"
+			],
+			[
+				"modalcamb",
+				"app/views/proyectos/modalCambiarEstatusProyecto.blade.php"
+			],
+			[
+				"proyectodeta",
+				"app/views/proyectos/proyectoDetalles.blade.php"
+			],
+			[
+				"producto",
+				"app/views/proyectos/producto.blade.php"
+			],
+			[
+				"desi",
+				"app/controllers/DesignController.php"
+			],
+			[
+				"ng",
+				"public/js/ng/ng.app.js"
+			],
+			[
+				"producto.js",
+				"public/js/ng/controllers/ng.controller.producto.js"
+			],
+			[
+				"ng.a",
+				"public/js/ng/ng.app.js"
+			],
+			[
+				"agregar.b",
+				"app/views/design/modalAgregar.blade.php"
+			],
+			[
+				"panel.",
+				"app/views/design/panel.blade.php"
+			],
+			[
+				"ng.app",
+				"public/js/ng/ng.app.js"
+			],
+			[
+				"proyectodetal",
+				"public/js/ng/controllers/ng.controller.proyectodetalle.js"
+			],
+			[
+				"master.blade",
+				"app/views/layouts/master.blade.php"
+			],
+			[
+				"prepedidocon",
+				"app/controllers/PrepedidoController.php"
+			],
+			[
+				"proyecto",
+				"app/controllers/ProyectoController.php"
+			],
+			[
+				"estimates",
+				"app/database/migrations/2015_02_19_045409_create_estimates_table.php"
+			],
+			[
+				"database",
+				"app/database/seeds/DatabaseSeeder.php"
+			],
+			[
+				"authcon",
+				"app/controllers/AuthController.php"
+			],
+			[
+				"administ",
+				"app/controllers/AdministracionController.php"
+			],
+			[
+				"estimate",
+				"app/models/Estimate.php"
+			],
+			[
+				"costear",
+				"public/js/ng/controllers/ng.controller.costear.js"
+			],
+			[
+				"decoration",
+				"app/models/Decoration.php"
+			],
+			[
+				"logo",
+				"app/models/Logo.php"
+			],
+			[
+				"prepedido",
+				"app/controllers/PrepedidoController.php"
+			],
+			[
+				"items",
+				"app/database/migrations/2015_02_19_031017_create_items_table.php"
+			],
+			[
+				"logos_",
+				"app/database/migrations/2015_02_19_031758_create_logos_table.php"
+			],
+			[
+				"proyec",
+				"app/controllers/ProyectoController.php"
+			],
+			[
+				"produc",
+				"app/views/proyectos/producto.blade.php"
+			],
+			[
+				"item",
+				"app/models/Item.php"
+			],
+			[
+				"modalproducto",
+				"app/views/proyectos/modalProductoExistente.blade.php"
+			],
+			[
+				"producto.",
+				"app/views/proyectos/producto.blade.php"
+			],
+			[
+				"modal",
+				"app/views/pedidos/modalSustitutos.blade.php"
+			],
+			[
+				"",
+				"app/controllers/PrepedidoController.php"
+			],
+			[
+				"utils",
+				"app/utils/Utils.php"
+			],
+			[
+				"prepedi",
+				"app/controllers/PrepedidoController.php"
+			],
+			[
+				"modalpmr",
+				"app/views/pedidos/modalPMR.blade.php"
+			],
+			[
+				"ng.js",
+				"public/js/ng/ng.app.js"
+			],
+			[
+				"home.b",
+				"app/views/home.blade.php"
+			],
+			[
+				"master.",
+				"app/views/layouts/master.blade.php"
+			],
+			[
+				"ng.",
+				"public/js/ng/ng.app.js"
+			],
+			[
+				"projec",
+				"app/models/Project.php"
+			],
+			[
+				"modalcambia",
+				"app/views/proyectos/modalCambiarEstatusProyecto.blade.php"
+			],
+			[
+				"projects_",
+				"app/database/migrations/2015_02_19_045401_create_projects_table.php"
+			],
+			[
+				"proyectos.",
+				"app/views/proyectos/proyectos.blade.php"
+			],
+			[
+				"modalelimin",
+				"app/views/proyectos/modalEliminar.blade.php"
+			],
+			[
+				"projects",
+				"app/database/migrations/2015_02_19_045401_create_projects_table.php"
+			],
+			[
+				"ng.ap",
+				"public/js/ng/ng.app.js"
+			],
+			[
+				"proyectodetalle.",
+				"public/js/ng/controllers/ng.controller.proyectodetalle.js"
+			],
+			[
+				"avrolea",
+				"public/js/ng/directives/ng.directive.avRoleable.js"
+			],
+			[
+				"administracion",
+				"app/views/administracion.blade.php"
+			],
+			[
+				"adminis",
+				"app/controllers/AdministracionController.php"
+			],
+			[
+				"administra",
+				"public/js/ng/controllers/ng.controller.administracion.js"
+			],
+			[
+				"project",
+				"app/models/Project.php"
+			],
+			[
+				"clientecon",
+				"app/controllers/ClienteController.php"
+			],
+			[
+				"mastercon",
+				"app/controllers/MasterController.php"
+			],
+			[
+				"databasesee",
+				"app/database/seeds/DatabaseSeeder.php"
+			],
+			[
+				"roltable",
+				"app/database/seeds/RolTableSeeder.php"
+			],
+			[
+				"proyectodetalle.js",
+				"public/js/ng/controllers/ng.controller.proyectodetalle.js"
+			],
+			[
+				"proyectos.bla",
+				"app/views/proyectos/proyectos.blade.php"
+			],
+			[
+				"angular",
+				"public/vendor/angular/angular.js"
+			],
+			[
+				"controller.js",
+				"public/js/ng/controllers/ng.controller.aaeresumen.js"
+			],
+			[
+				"prepedido.js",
+				"public/js/ng/controllers/ng.controller.prepedido.js"
+			],
+			[
+				"costings",
+				"app/database/migrations/2015_02_24_165513_create_costings_table.php"
+			],
+			[
+				"costing",
+				"app/database/migrations/2015_02_24_165513_create_costings_table.php"
+			],
+			[
+				"estiamtes_",
+				"app/database/migrations/2015_02_19_045409_create_estimates_table.php"
+			],
+			[
+				"design",
+				"app/controllers/DesignController.php"
+			],
+			[
+				"cstear.js",
+				"public/js/ng/controllers/ng.controller.costear.js"
+			],
+			[
+				"costeo",
+				"public/js/ng/controllers/ng.controller.costeomodal.js"
+			],
+			[
+				"proyecon",
+				"app/controllers/ProyectoController.php"
+			],
+			[
+				"design.js",
+				"public/js/ng/controllers/ng.controller.design.js"
+			],
+			[
+				"estiames_",
+				"app/database/migrations/2015_02_19_045409_create_estimates_table.php"
+			],
+			[
+				"coste",
+				"app/views/proyectos/costear.blade.php"
+			],
+			[
+				"proyecto.bla",
+				"app/views/proyectos/proyectos.blade.php"
+			],
+			[
+				"estiamtes",
+				"app/database/migrations/2015_02_19_045409_create_estimates_table.php"
+			],
+			[
+				"brief",
+				"public/js/ng/controllers/ng.controller.brieff.js"
+			],
+			[
+				"items_",
+				"app/database/migrations/2015_02_19_031017_create_items_table.php"
+			],
+			[
+				"prepedido.bal",
+				"app/views/pedidos/prepedidos.blade.php"
+			],
+			[
+				"prepedido.bla",
+				"app/views/pedidos/prepedidos.blade.php"
+			],
+			[
+				"costear.blad",
+				"app/views/proyectos/costear.blade.php"
+			],
+			[
+				"ha.blade.",
+				"app/views/design/ha.blade.php"
+			],
+			[
+				"pedido.js",
+				"public/js/ng/controllers/ng.controller.pedido.js"
+			],
+			[
+				"pedido.bla",
+				"app/views/pedidos/pedidos.blade.php"
+			],
+			[
+				"shipmen",
+				"app/models/Shipment.php"
+			],
+			[
+				"ha.js",
+				"public/js/ng/controllers/ng.controller.ha.js"
+			],
+			[
+				"desing.js",
+				"public/js/ng/controllers/ng.controller.design.js"
+			],
+			[
+				"ha.bla",
+				"app/views/design/ha.blade.php"
+			],
+			[
+				"panel",
+				"app/views/design/panel.blade.php"
+			],
+			[
+				"hproec.js",
+				"public/js/ng/controllers/ng.controller.hproyecto.js"
+			],
+			[
+				"pane",
+				"app/views/design/panel.blade.php"
+			],
+			[
+				"hproyec",
+				"app/views/hproyectos/hproyecto.blade.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 394.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"~/sinneg/.pedidos.sublime-project"
+			],
+			[
+				"pedi",
+				"~/sinneg/.pedidos.sublime-project"
+			],
+			[
+				"res",
+				"~/scitus/.prentige.sublime-project"
+			]
+		],
+		"width": 299.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 338.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
