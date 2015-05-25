@@ -24,8 +24,6 @@ class CreateUsersTable extends Migration {
 			$table->string("password");
 			$table->string("direccion");
 			$table->string("fotografia");
-			$table->integer("state_id")->unsigned();
-			$table->foreign("state_id")->references("id")->on("states");
 			$table->integer("city_id")->unsigned();
 			$table->foreign("city_id")->references("id")->on("cities");
 			$table->rememberToken();

@@ -1,4 +1,7 @@
 'use strict';
+var cities;
+var states; 
+
 
 var login = {
     init: function () {
@@ -39,12 +42,13 @@ var login = {
 var registro = {
     init: function () {
         registro.cropper.init();
+        registro.combos.estados.init();
     },
     cropper: {
         init: function () {
             $('.cropper-example-1 > img')
                 .on("click", function () {
-                    
+
                 }).cropper({
                     aspectRatio: 1,
                     autoCropArea: 0.65,
@@ -55,6 +59,31 @@ var registro = {
                     movable: true,
                     resizable: true
                 });
+        }
+    },
+    combos: {
+        estados: {
+            init: function () {
+                $.get("common/city/cities")
+                    .success(function (response) {
+                        cities = response.data;
+                        registro.combos.estados.llenar()
+                    })
+            },
+            llenar: function(cities){
+                var combo = $("#estado");
+                /* Limpiamos el combo pero guardamos el primero que es el placeholder */
+                var option1 = combo.first("option");
+                combo.find("option").remove();
+                combo.append(option1);
+
+               /* $.each(cities, function(city){
+                    $("<option/>",{value: "hola"});
+                });*/
+            }
+        },
+        ciudades: function () {
+
         }
     }
 }

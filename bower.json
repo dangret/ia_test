@@ -21,6 +21,7 @@
   "dependencies": {
     "jquery": "~2.1.4",
     "jquery-validate": "~1.13.1",
-    "cropper": "~0.9.3"
+    "cropper": "~0.9.3",
+    "underscore": "~1.8.3"
   }
 }

@@ -13,4 +13,13 @@ class LoginController extends \BaseController {
 		return Response::json(["status" => "error", "msg" => "Usuario o nombre incorrectos"],401);
 	}
 
+	public function getStates(){
+		return Response::json(["status" => "success", "data" => State::all()]);
+	}
+
+	public function getCities(){
+		$cities = City::where("id", ">" 0)->with("state")->get();
+		return Response::json(["status" => "success", "data" => $cities]);
+	}
+
 }

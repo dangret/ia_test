@@ -22,6 +22,7 @@ Proyecto de examen de evaluación
 	Frontend
 		- JQuery
 		- Bootstrap
+		- Underscore
 		- Cropper
 		- Bower (depende de nodejs)
 

@@ -26,6 +26,11 @@ Route::group([ "prefix" => "api", "before" => "auth"], function(){
 	Route::controller("user", "UserController");
 });
 
+Route::group([ "prefix" => "common"], function(){
+	Route::controller("state", "StateController");
+	Route::controller("city", "CityController");
+});
+
 Route::get('/', ["before" => "basic", function(){
 	return Redirect::to("inicio");
 }]);

@@ -17,7 +17,9 @@ class CreateCitiesTable extends Migration {
 			$table->increments('id');
 			$table->string('nombre');
 			$table->timestamps();
-			$table->sofDeletes();
+			$table->integer("state_id")->unsigned();
+			$table->foreign("state_id")->references("id")->on("states");
+			$table->softDeletes();
 		});
 	}
 

@@ -96,6 +96,16 @@ city_id
                                             <div class="form-group col-md-6">
                                                 <input type="password" name="confirm-password" id="confirm-password" tabindex="6" class="form-control" placeholder="Confirmar contraseña">
                                             </div>
+                                             <div class="form-group col-md-6">
+                                                    <select type="text" name="estado" id="estado" tabindex="3" class="form-control" placeholder="Sexo">
+                                                        <option value disabled >Estado</option>
+                                                    </select>
+                                                </div>
+                                                 <div class="form-group col-md-6">
+                                                    <select type="text" name="ciudad" id="ciudad" tabindex="3" class="form-control" placeholder="Sexo">
+                                                        <option value disabled selected>Ciudad</option>
+                                                    </select>
+                                                </div>
                                             <div class="form-group col-md-12">
                                                 <textarea name="direccion" id="direccion" tabindex="7" class="form-control" placeholder="Dirección"></textarea>
                                             </div>
@@ -118,6 +128,7 @@ city_id
             </div>
         </div>
     </div>
+    <script src="/assets/js/underscore/underscore-min.js"></script>
     <script src="/assets/js/jquery/dist/jquery.min.js"></script>
     <script src="/assets/js/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/assets/js/jquery-validate/dist/jquery.validate.min.js"></script>
