@@ -75,7 +75,7 @@ Proyecto de examen de evaluación
 
 	2. 	CONFIGURACION DE NGINX (explicado en el enlace) (para acceder con la siguiente direccion: "localhost:85/")
 		server {
-		    listen 85; //Puerto desocupado 
+		    listen 85; #Puerto desocupado 
 		
 		    root <directorio_del_proyecto>/public;
 		    index index.php index.html index.htm;

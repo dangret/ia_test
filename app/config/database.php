@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'iainteractive_db',
 			'username'  => 'root',
-			'password'  => 'S1n	n3g123',
+			'password'  => 'secret',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
