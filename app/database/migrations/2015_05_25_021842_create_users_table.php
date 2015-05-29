@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration {
 			$table->string("nombre");
 			$table->string("apellido_paterno");
 			$table->string("apellido_materno");
+			$table->string("email");
 			$table->enum("sexo", ["H","M"]);
 			$table->timestamp("fecha_nacimiento");
 			$table->string("correo_electronico");

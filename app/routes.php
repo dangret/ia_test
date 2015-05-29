@@ -11,9 +11,7 @@
 |
 */
 
-Route::get("login", function(){
-	return View::make("login");
-});
+Route::controller("login", "LoginController");
 
 Route::group([ "prefix" => "inicio", "before" => "auth"], function(){
 	Route::get("/", function(){

@@ -9,8 +9,10 @@
 <body>
 	<div class="welcome">
 		<h1>You have arrived</h1>
+		<button id="logout" class="btn btn-info">Cerrar Sesión</button>
 	</div>
 	<script src="/assets/js/jquery/dist/jquery.min.js" ></script>
 	<script src="/assets/js/bootstrap/dist/js/bootstrap.min.js" ></script>
+    <script src="/assets/scripts/inicio.js"></script>
 </body>
 </html>

@@ -5,6 +5,12 @@
     <link rel="stylesheet" type="text/css" href="/assets/js/cropper/dist/cropper.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/login.css">
 </head>
+<style>
+    label.error {
+        font-size: .8em;
+        color: red;
+    }
+</style>
 
 <body>
     <div class="container">
@@ -25,33 +31,24 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <form id="login-form" action="http://phpoll.com/login/process" method="post" role="form" style="display: block;">
+                                <form id="login-form" role="form" style="display: block;">
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Email" value="">
+                                        <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+                                        <input type="password" name="pass" id="pass" tabindex="2" class="form-control" placeholder="Contraseña">
                                     </div>
-                                    <!-- <div class="form-group text-center">
-                                        <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
-                                        <label for="remember"> Remember Me</label>
-                                    </div> -->
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-sm-6 col-sm-offset-3">
                                                 <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-success" value="Iniciar Sesión">
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- <div class="form-group">
+                                        <br>
                                         <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="text-center">
-                                                    <a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">Forgot Password?</a>
-                                                </div>
-                                            </div>
+                                            <div id="loginErrorMsg" class="alert alert-danger" style="display:none" role="alert">Usuario o contraseñas incorrectos</div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                 </form>
                                 <form id="register-form" role="form" style="display: none;">
                                     <div class="row">
@@ -63,9 +60,6 @@
                                                 <input name="upload" type="file" id="fileinput" />
                                             </div>
                                         </section>
-
-fecha_nacimiento
-city_id
                                         <section class="pull-left col-md-6">
                                             <div class="row">
                                                 <div class="form-group col-md-12">
@@ -84,6 +78,9 @@ city_id
                                                         <option value="M">Mujer</option>
                                                     </select>
                                                 </div>
+                                                <div class="form-group col-md-12">
+                                                    <input type="date" name="fecha_nacimiento" id="fecha_nacimiento" tabindex="3" class="form-control" placeholder="Apellido Materno">
+                                                </div>
                                             </div>
                                         </section>
                                         <section>
@@ -94,18 +91,18 @@ city_id
                                                 <input type="password" name="password" id="password" tabindex="5" class="form-control" placeholder="Contraseña">
                                             </div>
                                             <div class="form-group col-md-6">
-                                                <input type="password" name="confirm-password" id="confirm-password" tabindex="6" class="form-control" placeholder="Confirmar contraseña">
+                                                <input type="password" name="confirmpassword" id="confirmpassword" tabindex="6" class="form-control" placeholder="Confirmar contraseña">
                                             </div>
-                                             <div class="form-group col-md-6">
-                                                    <select type="text" name="estado" id="estado" tabindex="3" class="form-control" placeholder="Sexo">
-                                                        <option value disabled >Estado</option>
-                                                    </select>
-                                                </div>
-                                                 <div class="form-group col-md-6">
-                                                    <select type="text" name="ciudad" id="ciudad" tabindex="3" class="form-control" placeholder="Sexo">
-                                                        <option value disabled selected>Ciudad</option>
-                                                    </select>
-                                                </div>
+                                            <div class="form-group col-md-6">
+                                                <select type="text" name="estado" id="estado" tabindex="3" class="form-control" placeholder="Estado">
+                                                    <option value disabled>Estado</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-md-6">
+                                                <select type="text" name="city_id" id="city_id" tabindex="3" class="form-control" placeholder="Ciudad">
+                                                    <option value disabled selected>Ciudad</option>
+                                                </select>
+                                            </div>
                                             <div class="form-group col-md-12">
                                                 <textarea name="direccion" id="direccion" tabindex="7" class="form-control" placeholder="Dirección"></textarea>
                                             </div>
@@ -114,8 +111,11 @@ city_id
                                             <div class="form-group col-md-12">
                                                 <div class="row">
                                                     <div class="col-sm-6 col-sm-offset-3">
-                                                        <input type="submit" name="register-submit" id="register-submit" tabindex="8" class="form-control btn btn-info" value="Registrarse">
+                                                        <input type="submit" name="registrar" id="registrar" tabindex="8" class="form-control btn btn-info" value="Registrarse">
                                                     </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div id="RegistrerErrorMsg" class="alert alert-danger fade out" role="alert">Hubo un error al registrase, intente más tarde</div>
                                                 </div>
                                             </div>
                                         </section>
